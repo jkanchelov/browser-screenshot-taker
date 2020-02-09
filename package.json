@@ -20,6 +20,8 @@
     },
     "homepage": "https://github.com/jkanchelov/node-typescript-boilerplate#readme",
     "scripts": {
+        "test": "npx jest",
+        "code-coverage": "jest --coverage",
         "prepublish": "npm run build",
         "prettier-check": "npx prettier -c ./src/**/*.ts",
         "lint-check": "npx eslint ./src/**/*.ts",
@@ -31,18 +33,36 @@
         "debug": "npx npm-run-all -p build:watch start:watch"
     },
     "devDependencies": {
+        "@types/dotenv": "^8.2.0",
+        "@types/jest": "^25.1.2",
         "@types/node": "^13.1.6",
         "@typescript-eslint/eslint-plugin": "^2.10.0",
         "@typescript-eslint/parser": "^2.11.0",
-        "@types/dotenv": "^8.2.0",
         "eslint": "^6.7.2",
         "eslint-config-prettier": "^6.7.0",
+        "jest": "^25.1.0",
         "nodemon": "^2.0.1",
         "npm-run-all": "^4.1.5",
         "prettier": "^1.19.1",
+        "ts-jest": "^25.2.0",
         "typescript": "^3.7.3"
     },
     "dependencies": {
-        "dotenv": "^8.2.0"
+        "dotenv": "^8.2.0",
+        "playwright": "^0.10.0"
+    },
+    "jest": {
+        "transform": {
+            ".(ts|tsx)": "ts-jest"
+        },
+        "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+        "moduleFileExtensions": [
+            "ts",
+            "tsx",
+            "js"
+        ],
+        "moduleNameMapper": {
+            ".+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "identity-obj-proxy"
+        }
     }
 }
